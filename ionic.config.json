@@ -1,0 +1,7 @@
+{
+  "name": "Bimtek",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
