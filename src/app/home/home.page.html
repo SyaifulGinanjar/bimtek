@@ -1,7 +1,7 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Inbox
+<ion-header [translucent]="true" mode="ios">
+  <ion-toolbar mode="ios">
+    <ion-title mode="ios">
+      Daftar Hadir <ng-container *ngIf="total">({{total}})</ng-container>
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -11,15 +11,27 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
   
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">
-        Inbox
+  <ion-header collapse="condense" mode="ios">
+    <ion-toolbar mode="ios">
+      <ion-title size="large" mode="ios">
+        <h4 style="margin: 0"><strong>Daftar Hadir <ng-container *ngIf="total">({{total}})</ng-container></strong></h4>
       </ion-title>
     </ion-toolbar>
   </ion-header>
   
-  <ion-list>
-    <app-message *ngFor="let message of getMessages()" [message]="message"></app-message>
+  <ion-list class="ion-padding">
+    
+    <ng-container *ngIf="!currentSession">
+      <p style="margin: 0">Tidak ada sesi yang sedang berlangsung</p>
+    </ng-container>
+    <app-message *ngFor="let message of presensi" [message]="message"></app-message>
   </ion-list>
+
+  <ion-infinite-scroll  (ionInfinite)="getMessages($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+  <ion-fab mode="ios" slot="fixed" (click)="scan()" *ngIf="currentSession">
+    <ion-fab-button><img src="/assets/camera.png"></ion-fab-button>
+  </ion-fab>
 </ion-content>

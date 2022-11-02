@@ -1,0 +1,25 @@
+<ion-header [translucent]="true" mode="ios">
+  <ion-toolbar mode="ios">
+    <ion-title mode="ios">
+      LOGIN
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-list class="ion-padding">
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input (ionInput)="setEmail($event)" placeholder="Masukan Email" type="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input (ionInput)="setPassword($event)" placeholder="Masukan Password" type="password"></ion-input>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer class="ion-padding">
+  <ion-button [disabled]="!bodyReq.email || !bodyReq.password" expand="block" shape="round" color="primary" (click)="login()">
+    Login
+  </ion-button>
+</ion-footer>

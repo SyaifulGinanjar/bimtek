@@ -1,0 +1,25 @@
+ion-toolbar{
+    --background: #fff;
+    --border-color: #fff;
+    --border-width: 0 0;
+}
+ion-item{
+    --border-color: #ddd;
+    --inner-padding-end: 0;
+    --inner-padding-start: 0;
+    --padding-end: 0;
+    --padding-start: 0;
+    --padding-top: 8px;
+    --padding-bottom:8px;
+
+    ion-input{
+        color: #000;
+        font-weight: 500;
+        font-size: 18px;
+    }
+}
+ion-footer{
+    background-color: #fff;
+    --background: #fff;
+    background: #fff;
+}

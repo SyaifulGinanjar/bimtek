@@ -7,14 +7,20 @@ import { HomePage } from './home.page';
 import { HomePageRoutingModule } from './home-routing.module';
 import { MessageComponentModule } from '../message/message.module';
 
+import { ZBar } from '@awesome-cordova-plugins/zbar/ngx';
+import { HttpClientModule } from '@angular/common/http';
+import { DataService } from '../services/data.service';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     MessageComponentModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
+    HttpClientModule
   ],
-  declarations: [HomePage]
+  declarations: [HomePage],
+  providers: [ZBar, DataService]
 })
 export class HomePageModule {}
