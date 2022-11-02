@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
   async presentToast(msg, color = 'success') {
     const toast = await this.toastController.create({
       message: msg,
-      duration: 1500,
+      duration: 5000,
       position: 'top',
       color: color,
       mode: 'ios'

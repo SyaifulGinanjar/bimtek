@@ -86,7 +86,7 @@ export class HomePage {
             this.presensi=[];
             this.getSessions();
           }, err=>{
-            this.presentToast(err.error.message);
+            this.presentToast(err.error.message, 'danger');
           });
       });
     })
@@ -95,13 +95,14 @@ export class HomePage {
     });
   }
 
-  async presentToast(msg) {
+  async presentToast(msg, color = 'success') {
     const toast = await this.toastController.create({
       message: msg,
-      duration: 1500,
-      position: 'top'
+      duration: 5000,
+      position: 'top',
+      color: color,
+      mode: 'ios'
     });
     await toast.present();
   }
-
 }
